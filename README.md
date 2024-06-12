@@ -7,6 +7,7 @@
 
 - [ ] Data collection / sample data generation
 - [ ] Architecture: 1 agent with many tools vs multiple agents
+- [ ] Setting up credentials and API keys
 </details>
 
 ## Environment set up
@@ -27,7 +28,7 @@
    poetry --version
    ```
 
-3. **Install Pre-defined Dependencies from pyproject.toml & poetry.lock:**
+3. **Install Pre-defined Dependencies:** From pyproject.toml & poetry.lock
     ```bash
     poetry install
     ```
