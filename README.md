@@ -27,7 +27,7 @@
    poetry --version
    ```
 
-3. **Install Pre-defined Dependencies from pyproject.toml & poetry.lock:**
+3. **Install Pre-defined Dependencies:** From pyproject.toml & poetry.lock
     ```bash
     poetry install
     ```
