@@ -7,6 +7,7 @@
 
 - [ ] Data collection / sample data generation
 - [ ] Architecture: 1 agent with many tools vs multiple agents
+- [ ] Setting up credentials and API keys
 </details>
 
 ## Environment set up
