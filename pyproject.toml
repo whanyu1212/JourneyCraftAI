@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "transcendent"
+version = "0.1.0"
+description = "LLM Agent"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+langchain = "^0.2.3"
+pandas = "^2.2.2"
+numpy = "^1.26.4"
+matplotlib = "^3.9.0"
+streamlit = "^1.35.0"
+ipykernel = "^6.29.4"
+langchain-google-vertexai = "^1.0.5"
+black = "^24.4.2"
+isort = "^5.13.2"
+flake8 = "^7.0.0"
+docformatter = "^1.7.5"
+pytest = "^8.2.2"
+python-dotenv = "^1.0.1"
+tavily-python = "^0.3.3"
+langchain-community = "^0.2.4"
+beautifulsoup4 = "^4.12.3"
+langchain-chroma = "^0.1.1"
+langchain-openai = "^0.1.8"
+langchain-google-genai = "^1.0.6"
+faiss-cpu = "^1.8.0"
+langgraph = "^0.0.66"
+langchain-experimental = "^0.0.60"
+pre-commit = "^3.7.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
