@@ -10,6 +10,17 @@
 - [ ] Setting up credentials and API keys
 </details>
 
+## Update Log
+<details>
+<summary>Click to collapse the Update Log</summary>
+
+Jun 13 on branch `hy-dev`:
+- Showed an example of an agent equipped with github event search tool
+- Tested the markdown display of the output
+
+</details>
+
+
 ## Environment set up
 
 1. **Install Poetry:** 
