@@ -1,6 +1,13 @@
 ## Transcendent
  My AI co-pilot on the journey of self-improvement and discovery, meticulously tracking my progress, illuminating insights, and guiding me to unlock more potential.
 
+## TO DO:
+<details>
+<summary>Click to expand To-Do List</summary>
+
+- [ ] Data collection / sample data generation
+- [ ] Architecture: 1 agent with many tools vs multiple agents
+</details>
 
 ## Environment set up
 
