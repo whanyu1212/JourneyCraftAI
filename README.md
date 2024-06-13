@@ -1,5 +1,5 @@
 ## Transcendent
- My AI co-pilot on the journey of self-improvement and discovery, meticulously tracking my progress, illuminating insights, and guiding me to unlock more potential.
+ My AI co-pilot on the journey of self-improvement and discovery, meticulously tracking my progress, illuminating insights, and guiding me to unlock more potential. The UI is designed to look like a dynamic activity feed showcasing the journey.
 
 ## TO DO:
 <details>
@@ -8,6 +8,8 @@
 - [ ] Data collection / sample data generation
 - [ ] Architecture: 1 agent with many tools vs multiple agents
 - [ ] Setting up credentials and API keys
+- [ ] Literature review on CrewAI and AutoGen
+
 </details>
 
 ## Update Log
