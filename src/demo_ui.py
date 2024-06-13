@@ -6,13 +6,17 @@ import streamlit as st
 from dotenv import load_dotenv
 from langchain.pydantic_v1 import BaseModel, Field
 from langchain.tools import BaseTool
-from langchain_openai import (  # tend to use this whenever gemini runs into quota limit
-    ChatOpenAI,
-)
+from langchain.tools.retriever import create_retriever_tool
+from langchain_community.document_loaders import WebBaseLoader
+from langchain_community.vectorstores import FAISS  # vector store
+from langchain_openai import ChatOpenAI, OpenAIEmbeddings
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langgraph.checkpoint import MemorySaver  # an in-memory checkpointer
 from langgraph.prebuilt import create_react_agent
 
 load_dotenv()
+
+st.set_page_config(layout="wide")
 
 
 # For tracing and debugging
@@ -33,6 +37,11 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 
 # Let's define a custom tool by subclassing the BaseTool class (from langchain)
+if "col1_result" not in st.session_state:
+    st.session_state.col1_result = ""
+
+if "col2_result" not in st.session_state:
+    st.session_state.col2_result = ""
 
 
 class GithubUserCredentials(BaseModel):
@@ -56,8 +65,28 @@ class GithubActivityTool(BaseTool):
         return events_data
 
 
+url_list = ["https://github.com/trending", "https://github.com/trending/developers"]
+
+docs = []
+for path in url_list:
+    loader = WebBaseLoader(web_paths=(path,))
+    docs += loader.load()
+
+text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+splits = text_splitter.split_documents(docs)
+vectorstore = FAISS.from_documents(documents=splits, embedding=OpenAIEmbeddings())
+retriever = vectorstore.as_retriever()
+
+
+tool = create_retriever_tool(
+    retriever,
+    "github_trending_repositories_and_developers_retriever",
+    "Searches and returns trending repositories and developers on github "
+    "that are similar to the given query",
+)
+
 llm = ChatOpenAI(model="gpt-4o")
-tools = [GithubActivityTool()]
+tools = [GithubActivityTool(), tool]
 
 
 system_message = "You are a helpful assistant."
@@ -71,15 +100,41 @@ config = {"configurable": {"thread_id": "test-thread"}}
 
 st.title("Demo UI")
 
-with st.container():
-    st.write("Sample placeholder Github Events Feed:")
+col1, col2 = st.columns(2)
 
-    if st.button("Click me to fetch Github Events Feed"):
-        with st.spinner("Agent is fetching and summarizing the data..."):
-            message = (
-                "user",
-                f"whanyu1212, {GITHUB_ACCESS_TOKEN}. Return the summarized text as "
-                "well as the frequency table of different types of events.",
-            )
-            result = app.invoke({"messages": [message]}, config)["messages"][-1].content
-            st.markdown(result)
+with col1:
+    with st.container():
+        st.write("Sample placeholder Github Events Feed:")
+
+        if st.button("Click me to fetch Github Events Feed"):
+            with st.spinner("Agent is fetching and summarizing the data..."):
+                message = (
+                    "user",
+                    f"whanyu1212, {GITHUB_ACCESS_TOKEN}. Return the summarized text as "
+                    "well as the frequency table of different types of events.",
+                )
+                st.session_state.col1_result = app.invoke(
+                    {"messages": [message]}, config
+                )["messages"][-1].content
+
+        st.markdown(st.session_state.col1_result)
+
+with col2:
+    with st.container():
+        st.write("Sample placeholder Github Trending Repo:")
+
+        if st.button(
+            "Click me to fetch Trending repositories related to "
+            "machine learning, AI and data science"
+        ):
+            with st.spinner("Agent is fetching and summarizing the data..."):
+                message = (
+                    "user",
+                    "What are the trending repositories that are related to "
+                    "machine learning, AI, and data science today?",
+                )
+                st.session_state.col2_result = app.invoke(
+                    {"messages": [message]}, config
+                )["messages"][-1].content
+
+        st.markdown(st.session_state.col2_result)
