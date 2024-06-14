@@ -30,6 +30,7 @@ faiss-cpu = "^1.8.0"
 langgraph = "^0.0.66"
 langchain-experimental = "^0.0.60"
 pre-commit = "^3.7.1"
+onnxruntime = "1.16.3"
 
 
 [build-system]
