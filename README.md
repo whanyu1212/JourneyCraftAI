@@ -5,22 +5,25 @@
 <details>
 <summary>Click to expand To-Do List</summary>
 
-- [ ] Data collection / sample data generation
-- [ ] Architecture: 1 agent with many tools vs multiple agents
+- [x] Architecture: Team of agents
 - [ ] Setting up credentials and API keys
-- [ ] Literature review on CrewAI and AutoGen
-
+- [ ] Literature review on LangGraphCrewAI and AutoGen
+- [ ] Test integration with tourism related sites (webbasedloader or scraper)
 </details>
 
-## Update Log
+
+## Travel Planner Outline:
 <details>
-<summary>Click to collapse the Update Log</summary>
+<summary>Click to expand To-Do List</summary>
 
-Jun 13 on branch `hy-dev`:
-- Showed an example of an agent equipped with github event search tool
-- Tested the markdown display of the output
-
+- [ ] what kind of planner (from scratch or?)
+- [ ] geospatial -> graph (connecting the different stops)
+- [ ] itenary (mitosheet?)
+- [ ] multi-agent workflow
+- [ ] calendar + items 
+- [ ] single tab with multiple containers
 </details>
+
 
 
 ## Environment set up
