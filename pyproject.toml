@@ -30,6 +30,12 @@ faiss-cpu = "^1.8.0"
 langgraph = "^0.0.66"
 langchain-experimental = "^0.0.60"
 pre-commit = "^3.7.1"
+playwright = "^1.44.0"
+langchainhub = "^0.1.20"
+geopandas = "^0.14.4"
+folium = "^0.16.0"
+geopy = "^2.4.1"
+streamlit-folium = "^0.20.0"
 onnxruntime = "1.16.3"
 
 
