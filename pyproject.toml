@@ -36,6 +36,7 @@ geopandas = "^0.14.4"
 folium = "^0.16.0"
 geopy = "^2.4.1"
 streamlit-folium = "^0.20.0"
+onnxruntime = "1.16.3"
 
 
 [build-system]
