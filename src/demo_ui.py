@@ -1,8 +1,10 @@
 import os
 from typing import Type
 
+import pandas as pd
 import requests
 import streamlit as st
+import streamlit.components.v1
 from dotenv import load_dotenv
 from langchain.pydantic_v1 import BaseModel, Field
 from langchain.tools import BaseTool
@@ -99,6 +101,32 @@ app = create_react_agent(
 config = {"configurable": {"thread_id": "test-thread"}}
 
 st.title("Demo UI")
+
+destinations = [
+    {"name": "Shirogane Blue Pond", "latitude": 43.551, "longitude": 142.686},
+    {"name": "Otaru Aquarium", "latitude": 43.202, "longitude": 140.998},
+    {
+        "name": "Nikka Whisky Yoichi Distillery",
+        "latitude": 43.197,
+        "longitude": 140.774,
+    },
+    {"name": "Ainu Museum (Upopoy)", "latitude": 42.556, "longitude": 141.360},
+    {"name": "Unkai Terrace", "latitude": 43.069, "longitude": 142.634},
+]
+
+# Create a DataFrame
+df = pd.DataFrame(destinations)
+
+st.data_editor(df, num_rows="dynamic")
+
+path_to_html = "/workspaces/Transcendent/notebooks/hokkaido_map.html"
+
+with open(path_to_html, "r") as f:
+    html_data = f.read()
+
+# Show in webpage
+st.header("Show an external HTML")
+st.components.v1.html(html_data, scrolling=True, height=500)
 
 col1, col2 = st.columns(2)
 
