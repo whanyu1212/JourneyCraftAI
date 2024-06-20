@@ -1,5 +1,5 @@
-## Transcendent
- My AI co-pilot on the journey of self-improvement and discovery, meticulously tracking my progress, illuminating insights, and guiding me to unlock more potential. The UI is designed to look like a dynamic activity feed showcasing the journey.
+## JourneyCraftAI
+JourneyCraftAI is an AI-powered travel planning agent that crafts personalized itineraries, suggests destinations tailored to your interests, and offers up-to-date travel advice..
 
 ## TO DO:
 <details>

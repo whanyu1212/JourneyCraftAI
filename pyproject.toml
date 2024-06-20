@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "LLM Agent"
 authors = ["Your Name <you@example.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
@@ -37,6 +38,7 @@ folium = "^0.16.0"
 geopy = "^2.4.1"
 streamlit-folium = "^0.20.0"
 onnxruntime = "1.16.3"
+pyautogen = "^0.2.29"
 
 
 [build-system]
