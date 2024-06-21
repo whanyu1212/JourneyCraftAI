@@ -39,6 +39,8 @@ geopy = "^2.4.1"
 streamlit-folium = "^0.20.0"
 onnxruntime = "1.16.3"
 pyautogen = "^0.2.29"
+streamlit-lottie = "^0.0.5"
+joblib = "^1.4.2"
 
 
 [build-system]
