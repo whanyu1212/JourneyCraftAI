@@ -1,0 +1,10 @@
+llm_config:
+  cache_seed: 42
+  temperature: 0
+  timeout: 120
+
+
+code_execution_config:
+  last_n_messages: 3
+  work_dir: temp
+  use_docker: False

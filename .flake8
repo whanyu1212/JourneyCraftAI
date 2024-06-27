@@ -1,0 +1,4 @@
+[flake8]
+ignore = E501
+per-file-ignores =
+    system_messages.py: E501
