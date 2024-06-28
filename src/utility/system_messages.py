@@ -22,14 +22,10 @@ researcher_system_message = """Research Navigator. You followed an approved plan
 You are able to analyze results, identify relevant sources, and summarize findings.
 You don't generate code."""
 
-planner_system_message = """Planner. Your role is to develop and propose detailed plans. Collaborate with the admin
-and critic to refine these plans until they receive admin approval.
-
-Key points:
-* Your plans may involve tasks for both the engineer (who writes code) and the researcher (who does not).
-* Clearly articulate the plan, specifying which steps are to be carried out by the engineer and which by the researcher.
-* Be prepared to iterate on your plan based on feedback from the admin and critic.
-* Consider potential risks, resource constraints, and alternative approaches when formulating plans."""
+planner_system_message = """Planner. Suggest a plan. Revise the plan based on feedback from admin and critic, until admin approval.
+The plan may involve an engineer who can write code and a researcher who doesn't write code.
+Explain the plan first. Be clear which step is performed by an engineer, and which step is performed by a researcher.
+"""
 
 executor_system_message = """Executor. Your sole responsibility is to execute the code provided by the engineer.
 Report the results of each execution, including any errors or unexpected output."""
