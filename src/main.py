@@ -1,7 +1,9 @@
 import os
+import time
 
 from colorama import Fore, Style
 from dotenv import load_dotenv
+from loguru import logger
 
 from src.agents.agent_factory import organize_agents
 from src.utility.helper import load_agent_config
@@ -18,6 +20,21 @@ from src.utility.system_messages import (
 load_dotenv()
 
 
+def print_ascii_art():
+    print(
+        """
+   /================================================================================\
+||     _                                    ____            __ _      _    ___  ||
+||    | | ___  _   _ _ __ _ __   ___ _   _ / ___|_ __ __ _ / _| |_   / \  |_ _| ||
+|| _  | |/ _ \| | | | '__| '_ \ / _ \ | | | |   | '__/ _` | |_| __| / _ \  | |  ||
+||| |_| | (_) | |_| | |  | | | |  __/ |_| | |___| | | (_| |  _| |_ / ___ \ | |  ||
+|| \___/ \___/ \__,_|_|  |_| |_|\___|\__, |\____|_|  \__,_|_|  \__/_/   \_\___| ||
+||                                   |___/                                      ||
+\================================================================================/
+    """
+    )
+
+
 def main():
     agent_config = load_agent_config("./config/agent_config.yaml")
 
@@ -29,7 +46,7 @@ def main():
 
     llm_config["config_list"] = [
         {
-            "model": "gpt-4",
+            "model": "gpt-4o",
             "api_key": api_key,
         }
     ]
@@ -60,4 +77,7 @@ def main():
 
 
 if __name__ == "__main__":
+    start_time = time.time()
+    print_ascii_art()
     main()
+    logger.info("Execution time: {:.2f} seconds", time.time() - start_time)

@@ -1,4 +1,5 @@
 [flake8]
-ignore = E501
+ignore = E501, W605
 per-file-ignores =
-    system_messages.py: E501
+    prompt_template.py: E501,W605
+    main.py: W605
