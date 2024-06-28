@@ -15,5 +15,6 @@ This recipe is available for you to reuse..
 </end recipe>
 
 Here is a new task:
+
 {task2}
 """
